@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-enhanced-pkg"
+version = "1.0.0"
+description = "A modular Python package providing AI prompt engineering, response streaming, and batch optimization pipelines."
+readme = "README.md"
+authors = [
+    { name = "Parth Mehta", email = "parth.mehta@ttpl.ind.in" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["ai", "prompt-engineering", "streaming", "batch-optimization", "python-package"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+    "typing-extensions>=4.5.0",
+    "requests>=2.28.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.3.1",
+    "pytest-cov>=4.0.0",
+    "black>=23.3.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.3.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/parth-mehta95/sahkaarx-portfolio-d4e6777e"
+Repository = "https://github.com/parth-mehta95/sahkaarx-portfolio-d4e6777e.git"
+Issues = "https://github.com/parth-mehta95/sahkaarx-portfolio-d4e6777e/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov=ai_enhanced_pkg --cov-report=term-missing"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
